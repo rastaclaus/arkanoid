@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """game main module"""
-import sys
 import pygame
+import game_functions as gf
 from settings import Settings
 
 
@@ -16,9 +16,7 @@ def run_game():
 
     # main loop
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        gf.event_check()
         screen.fill(ball_settings.bg_color)
         pygame.display.flip()
 
