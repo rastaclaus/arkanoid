@@ -15,7 +15,7 @@ def run_game():
 
     # main loop
     while True:
-        gf.event_check()
+        gf.event_check(bat)
         gf.update_screen(ball_settings, screen, bat)
 
 if __name__ == '__main__':

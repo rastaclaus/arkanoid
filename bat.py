@@ -15,14 +15,20 @@ class Bat(Sprite):
         self.rect = pygame.Rect(
             0, 0, ball_settings.bat_width, ball_settings.bat_height)
         self.rect.centerx = screen.get_rect().centerx
+        self.centerx = float(self.rect.centerx)
         self.rect.bottom = screen.get_rect().bottom
         self.color = (ball_settings.bat_color)
         self.speed_factor = ball_settings.bat_speed_factor
         self.left_move = False
-        self.reght_move = False
+        self.right_move = False
 
     def update(self):
-        pass
+        if self.left_move and self.rect.left >= self.screen.get_rect().left:
+            self.centerx -= self.speed_factor
+        elif self.right_move and \
+                self.rect.right <= self.screen.get_rect().right:
+            self.centerx += self.speed_factor
+        self.rect.centerx = int(self.centerx)
 
     def draw_bat(self):
         """Вывод биты на экран"""
