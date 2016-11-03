@@ -12,11 +12,12 @@ class Bat(Sprite):
         """создает объект и размещает на экране"""
         super().__init__()
         self.screen = screen
-        self.rect = pygame.Rect(0, 0, 60, 30)
+        self.rect = pygame.Rect(
+            0, 0, ball_settings.bat_width, ball_settings.bat_height)
         self.rect.centerx = screen.get_rect().centerx
         self.rect.bottom = screen.get_rect().bottom
-        self.color = (230, 230, 230)
-        self.speed_factor = 1
+        self.color = (ball_settings.bat_color)
+        self.speed_factor = ball_settings.bat_speed_factor
         self.left_move = False
         self.reght_move = False
 
