@@ -9,16 +9,12 @@ def run_game():
     """enter point"""
     ball_settings = Settings()
     pygame.init()
-    screen = pygame.display.set_mode(
-        (ball_settings.screen_width, ball_settings.screen_height))
-
-    pygame.display.set_caption("Ball")
+    screen = gf.init_screen(ball_settings)
 
     # main loop
     while True:
         gf.event_check()
-        screen.fill(ball_settings.bg_color)
-        pygame.display.flip()
+        gf.update_screen(ball_settings, screen)
 
 if __name__ == '__main__':
     run_game()
