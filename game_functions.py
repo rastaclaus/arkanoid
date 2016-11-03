@@ -19,7 +19,9 @@ def event_check():
         if event.type == pygame.QUIT:
             sys.exit()
 
-def update_screen(ball_settings, screen):
+
+def update_screen(ball_settings, screen, bat):
     """screen redraw"""
     screen.fill(ball_settings.bg_color)
+    bat.draw_bat()
     pygame.display.flip()
