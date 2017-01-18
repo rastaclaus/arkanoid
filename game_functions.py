@@ -5,10 +5,10 @@ import sys
 import pygame
 
 
-def init_screen(ball_settings):
+def init_screen(game_settings):
     """screen init with settings"""
     screen = pygame.display.set_mode(
-        (ball_settings.screen_width, ball_settings.screen_height))
+        (game_settings.screen_width, game_settings.screen_height))
     pygame.display.set_caption("Ball")
     return screen
 
@@ -36,11 +36,15 @@ def keydown_check(event, bat):
         bat.left_move = True
     elif event.key == pygame.K_RIGHT:
         bat.right_move = True
+    elif event.key == pygame.K_q:
+        sys.exit()
 
 
-def update_screen(ball_settings, screen, bat):
+
+def update_screen(game_settings, screen, bat, ball):
     """screen redraw"""
-    screen.fill(ball_settings.bg_color)
+    screen.fill(game_settings.bg_color)
     bat.update()
     bat.draw_bat()
+    ball.draw_ball()
     pygame.display.flip()

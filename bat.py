@@ -8,17 +8,17 @@ from pygame.sprite import Sprite
 class Bat(Sprite):
     """Представление биты"""
 
-    def __init__(self, ball_settings, screen):
+    def __init__(self, game_settings, screen):
         """создает объект и размещает на экране"""
         super().__init__()
         self.screen = screen
         self.rect = pygame.Rect(
-            0, 0, ball_settings.bat_width, ball_settings.bat_height)
+            0, 0, game_settings.bat_width, game_settings.bat_height)
         self.rect.centerx = screen.get_rect().centerx
         self.centerx = float(self.rect.centerx)
         self.rect.bottom = screen.get_rect().bottom
-        self.color = (ball_settings.bat_color)
-        self.speed_factor = ball_settings.bat_speed_factor
+        self.color = (game_settings.bat_color)
+        self.speed_factor = game_settings.bat_speed_factor
         self.left_move = False
         self.right_move = False
 

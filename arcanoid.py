@@ -4,19 +4,21 @@ import pygame
 import game_functions as gf
 from settings import Settings
 from bat import Bat
+from ball import Ball
 
 
 def run_game():
     """enter point"""
-    ball_settings = Settings()
+    game_settings = Settings()
     pygame.init()
-    screen = gf.init_screen(ball_settings)
-    bat = Bat(ball_settings, screen)
+    screen = gf.init_screen(game_settings)
+    bat = Bat(game_settings, screen)
+    ball = Ball(game_settings, screen)
 
     # main loop
     while True:
         gf.event_check(bat)
-        gf.update_screen(ball_settings, screen, bat)
+        gf.update_screen(game_settings, screen, bat, ball)
 
 if __name__ == '__main__':
     run_game()
