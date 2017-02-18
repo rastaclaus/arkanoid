@@ -30,6 +30,6 @@ class Bat(Sprite):
             self.centerx += self.speed_factor
         self.rect.centerx = int(self.centerx)
 
-    def draw_bat(self):
+    def blitme(self):
         """Вывод биты на экран"""
         pygame.draw.rect(self.screen, self.color, self.rect)

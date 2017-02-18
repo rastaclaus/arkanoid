@@ -40,11 +40,33 @@ def keydown_check(event, bat):
         sys.exit()
 
 
+def check_collisions(game_settings, screen, bat, ball):
+    print(ball.x_speed)
+    if ball.rect.top <= 0:
+        ball.y_dir *= -1
+
+    if ball.rect.bottom >= game_settings.screen_height:
+        ball.y_dir *= -1
+
+    if ball.rect.left <= 0:
+        ball.x_speed *= -1
+        ball.rect.left = 1
+
+    if ball.rect.right >= game_settings.screen_width:
+        ball.x_speed *= -1
+        ball.rect.right = game_settings.screen_width - 1
+
+    if pygame.sprite.collide_rect(ball, bat):
+        ball.y_dir *= -1
+        ball.x_speed += (ball.rect.centerx - bat.rect.centerx) / 22
+
 
 def update_screen(game_settings, screen, bat, ball):
     """screen redraw"""
     screen.fill(game_settings.bg_color)
     bat.update()
-    bat.draw_bat()
-    ball.draw_ball()
+    ball.update()
+    check_collisions(game_settings, screen, bat, ball)
+    bat.blitme()
+    ball.blitme()
     pygame.display.flip()

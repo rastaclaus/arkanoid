@@ -11,4 +11,4 @@ class Settings():
         self.bat_width = 70
         self.bat_height = 15
         self.bat_color = (230, 230, 230)
-        self.bat_speed_factor = 1
+        self.bat_speed_factor = 1.5

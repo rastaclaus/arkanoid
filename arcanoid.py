@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+# -*- coding=UTF-8 -*-
 """game main module"""
 import pygame
 import game_functions as gf
@@ -14,6 +15,7 @@ def run_game():
     screen = gf.init_screen(game_settings)
     bat = Bat(game_settings, screen)
     ball = Ball(game_settings, screen)
+    ball.rect.centerx = game_settings.screen_width / 2
 
     # main loop
     while True:
